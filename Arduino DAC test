@@ -28,7 +28,7 @@ void setup() {
 void loop() {
  
   // DAC output should cycle between 0 - 512mV
-  for(int level = 0; level <128; level++) {
+  for(int level = 0; level < 64; level++) {
          MCP4801Write(level);
     delay(5000);
   }
