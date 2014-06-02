@@ -30,14 +30,18 @@ void setup() {
 
 void loop() {
   
-  // Output DAC 256mV
-     MCP4801Write(32);
+  // Output DAC 128mV
+     MCP4801Write(16);
     delay(5000);
+    int pwm = 0;
   // DAC output should cycle between 0 - 512mV
   for(int pwmlevel = 1; pwmlevel < 4; pwmlevel++) {
-    analogWrite(FAN_PWM, (pwmlevel * 64)- 1); 
-    Serial.print("pwmlevel :");
-    Serial.println((pwmlevel * 64)- 1);
+    pwm=((pwmlevel * 64) -1);
+    analogWrite(FAN_PWM, pwm);
+     
+    Serial.print("pwm Level = ");
+    Serial.println(pwm);
+    Serial.println("");
     delay(5000);
   }
  //wait a second at the top:
